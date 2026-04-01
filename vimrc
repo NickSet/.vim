@@ -1,25 +1,25 @@
+set nocompatible
 execute pathogen#infect()
 
 filetype plugin indent on
-set nocompatible
 
 set clipboard=unnamedplus
-
-"Auto Commands
-autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
-autocmd FileType cpp nnoremap <buffer> <localleader>uc 0xx
-autocmd FileType cpp :iabbrev <buffer> frlp for (int i = 0; i <; i++) {<cr><cr>}<esc>?;<cr>i
-autocmd FileType * unlet! g:airline#extensions#whitespace#checks
-autocmd FileType vimwiki let g:airline#extensions#whitespace#checks = [ 'indent' ]
-autocmd FileType markdown let g:airline#extensions#whitespace#checks = [ 'indent' ]
+set encoding=utf-8
+set number
+set hidden
+set backspace=indent,eol,start
+set wildmenu
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
 
 "Change swap directory
 set dir=/tmp
 
 "Mappings
-let maplocalleader = "\<Space>"
 let mapleader = "\<Space>"
+let maplocalleader = ","
 inoremap jk <ESC>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 noremap <leader>sv :source $MYVIMRC<cr>
@@ -34,8 +34,14 @@ colorscheme onedark
 let g:airline_theme='onedark'
 set termguicolors
 
-set encoding=utf-8
-set number
+"Auto Commands
+autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
+autocmd FileType cpp nnoremap <buffer> <localleader>uc 0xx
+autocmd FileType cpp :iabbrev <buffer> frlp for (int i = 0; i <; i++) {<cr><cr>}<esc>?;<cr>i
+autocmd FileType * unlet! g:airline#extensions#whitespace#checks
+autocmd FileType vimwiki let g:airline#extensions#whitespace#checks = [ 'indent' ]
+autocmd FileType markdown let g:airline#extensions#whitespace#checks = [ 'indent' ]
 
 "Syntastic
 set statusline+=%#warningmsg#
@@ -47,7 +53,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_swift_checkers = ['swiftpm']
-
 
 "Tabs/Indentations
 set expandtab
